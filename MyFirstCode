@@ -1,0 +1,9 @@
+public class Demo {
+    public  void demo(){
+    Integer a=10;
+    List<Integer> l=new List<Integer>();
+    l.add(20);
+    System.debug(l);
+    }
+
+}
