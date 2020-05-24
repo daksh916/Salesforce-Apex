@@ -1,0 +1,12 @@
+@IsTest
+public class InstallationTests {
+    @IsTest
+    public static void testMaintenanceRequest(){
+        MaintenanceRequestHelper.updateWorkOrders();
+    }
+    
+    @IsTest
+    public static void testWarehouseSync(){
+        WarehouseCalloutService.runWarehouseEquipmentSync();
+    }
+}
