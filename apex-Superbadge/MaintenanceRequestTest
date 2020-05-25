@@ -1,7 +1,7 @@
 @isTest
 private class MaintenanceRequestTest {
 	@testSetup static void setup() {
-        // Create one equip record with a 40 day maintenance cycle
+        
         Product2 testEquip40 = new Product2(name='test',maintenance_cycle__c=40,replacement_part__c=true);
         insert testEquip40;
         
