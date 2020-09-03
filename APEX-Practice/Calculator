@@ -1,0 +1,28 @@
+public class DemoCalculator {
+    public static Integer sum=0,p=1;
+    private static Integer add(Integer i,Integer j)
+    {	
+        sum=i+j;
+        return sum;
+            
+    }
+    private static Integer prod(Integer i,Integer j)
+    {	
+         p=i*j;
+        return p;
+           
+    }
+    public void printOut()
+    {
+        System.debug(sum);
+        System.debug(p);
+    }
+    public void doMath(Integer i, Integer j)
+    {
+        add(i,j);
+        prod(i,j);
+        printOut();
+        
+    }
+
+}
