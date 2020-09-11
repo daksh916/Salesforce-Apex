@@ -1,0 +1,25 @@
+trigger OpportunityTrigger on Opportunity (before insert,before delete,after insert,after update) {
+    if(trigger.isbefore)
+    {
+        if(trigger.isInsert)
+        {
+            System.debug('before and insert');
+        }
+        if(trigger.isDelete)
+        {
+            System.debug('before and delete');
+        }
+    }
+    else if(trigger.isAfter)
+    {
+        if(trigger.isInsert)
+        {
+            System.debug('after insert');
+        }
+        if(trigger.isUpdate)
+        {
+            System.debug('after update');
+        }
+    }
+
+}
