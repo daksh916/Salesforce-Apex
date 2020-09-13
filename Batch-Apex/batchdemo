@@ -1,0 +1,20 @@
+global class BatchDemo implements Database.Batchable<sObject>,Database.Stateful{
+    private Integer j=0;
+    global Database.QueryLocator start(Database.BatchableContext o)
+    {
+        return Database.getQueryLocator('Select id from Account Limit 100');
+    }
+    global void execute(Database.BatchableContext o,List<Account> scope)
+    {	for(Integer i=0;i<5;i++)
+    	{
+        j++;
+    	}
+        System.debug('hello in execute');
+    }
+    global void finish(Database.BatchableContext o)
+    {
+        System.debug('hello in finish');
+        System.debug(j);
+    }
+
+}
