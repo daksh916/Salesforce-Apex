@@ -1,0 +1,33 @@
+public class StreetApi {
+    public static void verifyadd(String ad)
+    {
+        Http http=new Http();
+        HttpRequest req=new HttpRequest();
+        req.setEndpoint('https://us-street.api.smartystreets.com/street-address?auth-id=988921e1-c7ea-283f-ea9e-075fa23c88b4&auth-token=XoXAA443aSD1u32T4UY5'+ad);
+      	req.setMethod('GET');
+        HttpResponse res=Http.send(req);
+        if(res.getStatusCode()==200)
+        {
+            List<object> result=(List<object>)JSON.deserializeUntyped(res.getBody());
+            Map<string,object> m=(Map<string,object>)result[0];
+            Map<string,object> component=(Map<string,object>)m.get('component');
+            for(string s:component.keySet())
+            {
+                if(component.get(s)==ad)
+                    try{
+                        Event e=new Event();
+                        e.Location=ad;
+                        e.DurationInMinutes=20;
+                        e.ActivityDateTime=system.now();
+                        insert e;
+                        
+                    }
+                catch(Exception ex)
+                {
+                    System.debug('Error'+ex.getMessage());
+                }
+            }
+        }
+    }
+
+}
